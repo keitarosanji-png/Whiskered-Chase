@@ -7,13 +7,13 @@ class Cloud:
         self.screen_w = screen_w
         self.screen_h = screen_h
         
-        self.image = pygame.image.load("Assets/clouds.jpg").convert()
-        self.image.set_colorkey((0, 0, 0)) 
-        self.image = pygame.transform.scale(self.image, (180, 100))
+        self.image = pygame.image.load("Assets/clouds.jpg").convert() #image ng clouds
+        self.image.set_colorkey((0, 0, 0)) #black background ay mawawala
+        self.image = pygame.transform.scale(self.image, (180, 100)) #size of the clouds
 
-        self.reset()
+        self.reset() # Set the speed and vertical position using the reset logic.
         
-        self.x = random.randint(0, screen_w)
+        self.x = random.randint(0, screen_w) #scatter ng clouds
 
     def reset(self):
         #dito mag spawn yung clouds
@@ -34,7 +34,7 @@ class Cloud:
     def draw(self, screen):
         screen.blit(self.image, (self.x, self.y))
 
-# Gagawa ito ng 'count' (halimbawa: 6) na Cloud objects.
+# Gagawa ito ng count (halimbawa: 6) na Cloud objects.
 class CloudManager:
     def __init__(self, count, screen_w, screen_h):
         self.clouds = [Cloud(screen_w, screen_h) for _ in range(count)]
