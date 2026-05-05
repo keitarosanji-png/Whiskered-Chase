@@ -1,7 +1,7 @@
 import pygame # Import ang library para sa graphics.
 import random # Para sa random directions ng mga daga.
 
-# NEW: Mga constants para sa physics at boundaries ng bahay.
+# Mga constants para sa physics at boundaries ng bahay.
 FLOORS_Y = [190, 320, 455, 600] # Listahan ng Y-axis positions ng bawat floor (0 hanggang 3).
 STAIRS_X = (880, 980) # Range ng X-axis kung nasaan ang hagdanan.
 HOUSE_LIMITS = (35, 955) # Hangganan ng pader (kaliwa at kanan).
@@ -9,7 +9,7 @@ WALL_POSITIONS = [300, 565, 840] # Pwesto ng mga vertical walls sa loob ng bahay
 WALL_WIDTH = 40 # Kapal ng pader para sa transparency logic.
 
 class SpriteEntity:
-    # NEW: Dito nakalagay ang properties ng bawat character (pusa o daga).
+    # Dito nakalagay ang properties ng bawat character (pusa o daga).
     def __init__(self, run_frames, idle_frame=None, is_cat=True):
         self.run_frames = run_frames # List ng images para sa animation ng pagtakbo.
         self.idle_frame = idle_frame # Image kapag nakatigil (para sa pusa).
@@ -54,7 +54,7 @@ class SpriteEntity:
             self.anim_speed = 0
 
     def draw(self, surf):
-        # NEW: Triple Wall Transparency Logic - nag-a-adjust ng linaw (alpha).
+        # Triple Wall Transparency Logic - nag-a-adjust ng linaw (alpha).
         alpha = 255 # Default: solid ang kulay.
         for wall_x in WALL_POSITIONS:
             # Kung ang character ay nasa likod ng pader, gawin itong semi-transparent.
@@ -77,7 +77,7 @@ class SpriteEntity:
         surf.blit(img, (self.pos.x, self.pos.y - img.get_height()))
 
     def reset(self):
-        # NEW: Ibalik ang character sa starting position kapag nag-restart ang game.
+        # Ibalik ang character sa starting position kapag nag-restart ang game.
         self.floor = 3
         self.pos = pygame.Vector2(100, FLOORS_Y[self.floor])
         self.is_moving = False

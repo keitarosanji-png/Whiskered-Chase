@@ -145,7 +145,7 @@ while True: # Main Game Loop - dito tumatakbo ang laro nang paulit-ulit.
                 if event.key == pygame.K_UP: cat.move(0, -1) # Tumaas ng floor.
                 if event.key == pygame.K_DOWN: cat.move(0, 1) # Bumaba ng floor.
 
-        # --- END SCREEN (WIN/LOSE) ---
+        # END SCREEN (WIN/LOSE)
         # Kapag tapos na ang laro, dito natin hinihintay kung gusto mo bang mag-ulit (Play Again) o bumalik sa simula (Quit).
         elif current_state in ['WIN', 'GAMEOVER']: # Kapag tapos na ang laro.
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -399,7 +399,7 @@ while True: # Main Game Loop - dito tumatakbo ang laro nang paulit-ulit.
             cx = name_rect.right + 2 if player_name else box_rect.centerx - 8 
             screen.blit(cursor, (cx, name_rect.top)) 
 
-        # 5. Screen Fade Overlay
+        # Screen Fade Overlay
         # Ginagamit ito para sa mga smooth transitions (halimbawa, pagpapakita o pagtatago ng menu).
         if fade_alpha > 0:
             screen.blit(fade_surface, (0, 0))
